@@ -36,12 +36,32 @@ Tour.ImageBitmapLoader.prototype._onload = function() {
     var mimeType = headers.match(/^Content-Type\:\s*(.*?)$/mi)[1] || 'image/jpeg';
     var options = { imageOrientation: 'flipY', resizeQuality: 'high' };
     var that = this;
-    createImageBitmap(new Blob([this.request.response], {type: mimeType}), options).then(function(bitmap){
+
+    (function(){
+        
+        if (BrouserInfo.brouser.name == "Firefox" && parseInt(BrouserInfo.brouser.version.split('.')[0])<93)
+            return createImageBitmap(new Blob([that.request.response], {type: mimeType}));
+        if (BrouserInfo.mobile)
+            return createImageBitmap(new Blob([that.request.response], {type: mimeType}), options);
+        else
+            return createImageBitmap(new Blob([that.request.response], {type: mimeType}), options);
+
+    })().then(function(bitmap){
         that.bitmap = bitmap;
+        that.complete = true;
         that._onimageload();
     }).catch(function (err){
         that.onerror(err);
     })
+
+
+
+    // createImageBitmap(new Blob([this.request.response], {type: mimeType}), options).then(function(bitmap){
+    //     that.bitmap = bitmap;
+    //     that._onimageload();
+    // }).catch(function (err){
+    //     that.onerror(err);
+    // })
 };
 
 Tour.ImageBitmapLoader.prototype._onprogress = function(event) {

@@ -1,5 +1,6 @@
 /* globals UI, Tour, Lang */
 Tour.setGallery = function(data, visible) {
+
     if (this.options.gallery) {
         UI.gallery.init(visible);
 

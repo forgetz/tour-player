@@ -1,6 +1,6 @@
 /* globals UI */
 
-UI.Marker = function(action, icon, title) {
+UI.Marker = function(action, icon, title, sound) {
     var markersContayner = document.getElementById('markers');
     if (!markersContayner) {
         markersContayner = document.createElement('div');
@@ -26,6 +26,9 @@ UI.Marker = function(action, icon, title) {
     }
     if (title) {
         this.setTitle(title);
+    }
+    if (sound) {
+        this.setSound(sound);
     }
 
     this.setPosition();
@@ -106,6 +109,13 @@ UI.Marker.prototype.setIcon = function(name) {
     }
 };
 
+UI.Marker.prototype.setSound = function(name) {
+    if (name) {
+        this.sound = name;
+    }
+};
+
 UI.Marker.prototype.remove = function() {
     this.domElement.parentNode.removeChild(this.domElement);
 };
+

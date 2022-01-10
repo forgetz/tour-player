@@ -1,6 +1,8 @@
 /* globals Tour, Lang, UI */
 
 Tour.setMarkers = function(id) {
+
+
     if (this.markers) {
         this.markers.forEach(function(marker) {
             marker.remove();
@@ -15,7 +17,14 @@ Tour.setMarkers = function(id) {
         /* Типы действий
          * github.com/Tour-360/tour-player/wiki/Формат-файла-manifest.json#action
          */
+
         var action = function(marker) {
+            if (marker.sound !== undefined) {
+                console.log(marker.sound)
+                var sfx = document.getElementById(marker.sound); 
+                sfx.play()
+            }
+
             if (this.type == 'panorama') {
                 Tour.view.set(this, null, Math.abs(Tour.view.lat.value) < 45);
             } else if (this.type == 'url') {
@@ -46,7 +55,7 @@ Tour.setMarkers = function(id) {
                         Tour.setPlane(k, imgeURL, manager);
                     }
                 }.bind(this));
-            }
+            } 
         };
 
         for (var i = 0; i < markers.length; i++) {
@@ -71,6 +80,9 @@ Tour.setMarkers = function(id) {
                 m.icon ||
                 (m.action && markers[i].action.type == 'panorama' ? 'up' : 'info')
             );
+
+            marker.setSound(m.sound);
+
             m.index = this.markers.push(marker) - 1;
         }
     }

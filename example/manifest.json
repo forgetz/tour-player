@@ -16,26 +16,32 @@
   "panorams": [
     {
       "id": "9",
+      "bgm": {
+        "id": "minds",
+        "volume": 0.5
+      },
       "title": {"ru": "У дивана", "en": "In the sofa"},
       "heading": 83.95,
       "markers": [
         {"lat":-18.17,"lon":356.51,"icon":"point","action":{"type":"panorama","id":"4"}},
-        {"lat":-42.83,"lon":39.59,"icon":"point","action":{"type":"panorama","id":"1"}},
+        {"lat":-42.83,"lon":39.59,"icon":"point","action":{"type":"panorama","id":"1"},"sound": "marker"
+        },
         {"lat":-25.78,"lon":16.21,"icon":"point","action":{"type":"panorama","id":"2"}},
         {"lat":-17.83,"lon":43.61,"icon":"point","action":{"type":"panorama","id":"3"}},
         {"lat":-3.71,"lon":145.92,"icon":"up","action":{"type":"panorama","id":"8"}},
-        {"lat":-4.85,"lon":70.97,"title":"Моноблок Profoto D1","action":{"type":"popup","id":"profoto"}},
+        {"lat":-4.85,"lon":70.97,"title":"Моноблок Profoto D1","action":{"type":"popup","id":"profoto"}, "sound": "marker"},
         {"lat":45.97,"lon":25.21,"title": {"ru": "Подвесной свет", "en": "Light"},"action":{"type":"popup","id":"product0"}},
         {"lat":-28.66,"lon":334.56,"title": {"ru": "Кресло", "en": "Armchair"},"action":{"type":"popup","id":"product4"}},
         {"lat":-14.12,"lon":416.43,"title": {"ru": "Кресло", "en": "Armchair"},"action":{"type":"popup","id":"product3"}},
-        {"lat":8.68,"lon":276.35, "title": [
-          {"ru": "Включить свет", "en": "Turn on the light"},
-          {"ru": "Выключить свет", "en": "Turn the lights off"}
-        ], "action": { "type": "change", "planes": {
-          "3": ["5b", "5"],
-          "1": ["3b", "3"],
-          "4": ["0b", "0"]
-        }}}
+        {
+          "lat":8.68,
+          "lon":276.35, 
+          "title": [
+            {"en": "Turn on the light"}
+          ],
+          "sound": "marker"
+        }
+      
       ]
     },
     {

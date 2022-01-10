@@ -1,7 +1,10 @@
 /* globals Tour, THREE, UI*/
 
-Tour.Marker = function(lat, lon, action, icon, title) {
-    UI.Marker.call(this, action, icon, title);
+
+
+
+Tour.Marker = function(lat, lon, action, icon, title, sound) {
+    UI.Marker.call(this, action, icon, title, sound);
     this.setLatLon(lat, lon);
 };
 
