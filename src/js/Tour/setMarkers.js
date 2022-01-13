@@ -25,23 +25,35 @@ Tour.setMarkers = function(id) {
             var volume = pano.bgm.volume;
             var panoid = pano.id;
 
-            if (this.currentBGM == '') {
-                console.log('now playing', bgmid)
-                bgmplayer[panoid].play();
-                bgmplayer[panoid].volume = volume;
-                this.currentBGM = panoid;
-            }
-            else if (this.currentBGM != panoid)
+            if (bgmState)
             {
-                console.log('change bgm to', bgmid)
-                bgmplayer[this.currentBGM].pause();
-                bgmplayer[panoid].play();
-                bgmplayer[panoid].volume = volume;
+                if (this.currentBGM == '') {
+                    console.log('now playing', bgmid)
+                    bgmplayer[panoid].play();
+                    bgmplayer[panoid].volume = volume;
+                    this.currentBGM = panoid;
+
+                    bgmCurrent = panoid;
+                }
+                else if (this.currentBGM != panoid)
+                {
+                    console.log('change bgm to', bgmid)
+                    bgmplayer[this.currentBGM].pause();
+                    bgmplayer[panoid].play();
+                    bgmplayer[panoid].volume = volume;
+                    this.currentBGM = panoid;
+
+                    bgmCurrent = panoid;
+                } else {
+
+                    
+                    
+                }
+            }
+            else 
+            {
                 this.currentBGM = panoid;
-            } else {
-
-
-                
+                bgmCurrent = panoid;
             }
             
         }

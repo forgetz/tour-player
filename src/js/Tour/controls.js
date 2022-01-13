@@ -21,6 +21,22 @@ Tour.controls = {
         window.open(location.href,'_blank');
     },
 
+    mute: function() {
+        if (bgmState) {
+            bgmplayer[bgmCurrent].pause();
+            bgmState = false;
+        }
+        else {
+            bgmplayer[bgmCurrent].play();
+            bgmState = true
+        }
+    },
+
+    gohome: function() {
+        var data = Tour.getManifest();
+        Tour.view.set(data.home, null, true);
+    },
+
     fullscreen: function() {
         var e;
         if (document.fullscreenElement              ||

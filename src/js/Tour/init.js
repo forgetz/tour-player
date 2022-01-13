@@ -1,6 +1,8 @@
 /* globals Tour, Lang, BrouserInfo, UI*/
 
 var bgmplayer = [];
+var bgmCurrent = '';
+var bgmState = true;
 
 Tour.init = function(data, options) {
     this.sentry();
