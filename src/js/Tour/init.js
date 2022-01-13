@@ -1,8 +1,10 @@
 /* globals Tour, Lang, BrouserInfo, UI*/
 
+var bgmplayer = [];
+
 Tour.init = function(data, options) {
     this.sentry();
-    console.info('Tour-player', 'v' + this.version.join('.'), 'by http://Tour-360.ru');
+    console.info('Tour-player', 'v' + this.version.join('.'));
     BrouserInfo();
     this.options.set(this.defaultOption);
     this.options.set(options);
@@ -18,6 +20,7 @@ Tour.init = function(data, options) {
     this.setMouseMenu();
     this.orientationControls.init();
     this.load(data, function(data) {
+
         this.setVideos(data.videos);
         this.setImages(data.images);
         document.title = Lang.translate(data.title) || Lang.get('virtual-tour');
@@ -33,5 +36,15 @@ Tour.init = function(data, options) {
         this.addEventListeners();
         Tour.emmit('init');
         this.animate();
+
+
+        this.currentBGM = '';
+        for (i = 0; i< data.panorams.length; i++) {
+            if (data.panorams[i].bgm !== undefined) { 
+                var panoid = data.panorams[i].id
+                bgmplayer[panoid] = document.getElementById(data.panorams[i].bgm.id)
+            }
+        }
+
     }.bind(this));
 };

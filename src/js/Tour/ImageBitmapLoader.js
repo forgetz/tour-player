@@ -34,6 +34,7 @@ Tour.ImageBitmapLoader.prototype.abort = function() {
 Tour.ImageBitmapLoader.prototype._onload = function() {
     var headers = this.request.getAllResponseHeaders();
     var mimeType = headers.match(/^Content-Type\:\s*(.*?)$/mi)[1] || 'image/jpeg';
+
     var options = { imageOrientation: 'flipY', resizeQuality: 'high' };
     var that = this;
 

@@ -11,12 +11,15 @@ Tour.setMesh = function(id) {
     }
 
     this.meshs = [];
-
-    var videos = this.data.panorams && this.data.panorams[id] && this.data.panorams[id].videos;
+    var pano = this.getPanorama(id);
+    var videos = pano && pano.videos;
 
     if (videos) {
         for (var i = 0; i < videos.length; i++) {
             var options = videos[i];
+
+            //console.log(options.videoId)
+
             if (Tour.options.rendererType == 'css') {
                 var video = new THREE.Object3D();
                 var object = new THREE.CSS3DObject(Tour.videos[options.videoId].videoElement);

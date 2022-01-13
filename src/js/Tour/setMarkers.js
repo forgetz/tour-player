@@ -1,7 +1,8 @@
 /* globals Tour, Lang, UI */
 
-Tour.setMarkers = function(id) {
 
+
+Tour.setMarkers = function(id) {
 
     if (this.markers) {
         this.markers.forEach(function(marker) {
@@ -18,15 +19,47 @@ Tour.setMarkers = function(id) {
          * github.com/Tour-360/tour-player/wiki/Формат-файла-manifest.json#action
          */
 
+        if (pano.bgm !== undefined) {
+
+            var bgmid = pano.bgm.id;
+            var volume = pano.bgm.volume;
+            var panoid = pano.id;
+
+            if (this.currentBGM == '') {
+                console.log('now playing', bgmid)
+                bgmplayer[panoid].play();
+                bgmplayer[panoid].volume = volume;
+                this.currentBGM = panoid;
+            }
+            else if (this.currentBGM != panoid)
+            {
+                console.log('change bgm to', bgmid)
+                bgmplayer[this.currentBGM].pause();
+                bgmplayer[panoid].play();
+                bgmplayer[panoid].volume = volume;
+                this.currentBGM = panoid;
+            } else {
+
+
+                
+            }
+            
+        }
+
         var action = function(marker) {
+
             if (marker.sound !== undefined) {
-                console.log(marker.sound)
                 var sfx = document.getElementById(marker.sound); 
                 sfx.play()
             }
 
             if (this.type == 'panorama') {
                 Tour.view.set(this, null, Math.abs(Tour.view.lat.value) < 45);
+            } else if (this.type == 'popnorama') {
+
+                Tour.view.set(this, null, Math.abs(Tour.view.lat.value) < 45);
+                UI.popUp.set(this.popupid);
+
             } else if (this.type == 'url') {
                 window.open(this.href, this.target || '_blank');
             } else if (this.type == 'popup') {
@@ -68,18 +101,16 @@ Tour.setMarkers = function(id) {
                 action.bind(m.action, m)
             );
 
-            var title = (
-                Array.isArray(m.title) ? m.title[m.title.length - 1] : m.title) ||
-                (markers[i].action.type == 'panorama' && this.getPanorama(m.action.id).title
-            );
+            var title = (Array.isArray(m.title) ? m.title[m.title.length - 1] : m.title) ||
+                (markers[i].action.type == 'panorama' && this.getPanorama(m.action.id).title) || 
+                (markers[i].action.type == 'popnorama' && this.getPanorama(m.action.id).title);
 
             if (!BrouserInfo.mobile) {
                 marker.setTitle(Lang.translate(title));
             }
-            marker.setIcon(
-                m.icon ||
-                (m.action && markers[i].action.type == 'panorama' ? 'up' : 'info')
-            );
+            marker.setIcon(m.icon || 
+                (m.action && markers[i].action.type == 'panorama' ? 'up' : 'info') ||
+                (m.action && markers[i].action.type == 'popnorama' ? 'up' : 'info'));
 
             marker.setSound(m.sound);
 

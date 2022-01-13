@@ -1,11 +1,18 @@
 /* globals Tour, THREE*/
 
 Tour.Video = function(options) {
+
+    
     this.videoElement = document.createElement('video');
-    this.videoElement.src = options.src;
-    // this.videoElement.autoplay =  options.autoplay || true;
-    this.videoElement.loop = options.loop || true;
-    this.videoElement.muted = options.muted || true;
+    this.videoElement.preload = options.preload || 'none';
+    this.videoElement.src = ((BrouserInfo.mobile && Tour.options.mobileVideoScale)? options.src.replace('.', '@'+Tour.options.mobileVideoScale+'.'):options.src) + Tour.getRandomQuery();
+
+    this.videoElement.setAttribute("playsinline", true);
+    this.videoElement.setAttribute("loop", options.loop == undefined ? true : false);
+    this.videoElement.setAttribute("muted", options.muted == undefined ? true : false);
+    this.videoElement.setAttribute("autoplay", options.autoplay || false);
+    this.videoElement.setAttribute("preload", 'none');
+    this.videoElement.setAttribute("crossOrigin", "anonymous");
 
     var _this = this;
 

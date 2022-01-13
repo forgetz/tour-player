@@ -9,3 +9,4 @@ Tour.getPanorama = function(key) {
         return pano.id == (key || 0);
     })[0] || this.data.panorams[0];
 };
+
