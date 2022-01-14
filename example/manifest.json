@@ -5,6 +5,7 @@
   "home": {
     "type": "panorama", "id": "1", "lat": -9.14, "lon": -5.15
   },
+  "control": "custom",
   "videos": [
     {
       "id": "macbook",

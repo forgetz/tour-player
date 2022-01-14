@@ -18,11 +18,14 @@ Tour.init = function(data, options) {
     UI.popUp.init();
     this.setSliders();
     UI.devCursor.init(this.options.cursor);
-    this.setControlPanel();
+
+    
     this.setMouseMenu();
     this.orientationControls.init();
+
     this.load(data, function(data) {
 
+        this.setControlPanel(data.control);
         this.setVideos(data.videos);
         this.setImages(data.images);
         document.title = Lang.translate(data.title) || Lang.get('virtual-tour');

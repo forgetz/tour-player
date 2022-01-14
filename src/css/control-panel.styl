@@ -1,5 +1,94 @@
-$btn-size = 36px
+$btn-size = 40px
+$btn-size-lg = 100px
 $progress-bar-height = 3px
+
+
+#control-panel-lg
+    pointer-events none
+    position absolute
+    width 100%
+    text-align center
+    z-index 1
+    opacity 0
+    left 0
+    bottom 5em
+    transition all.4s ease
+    user-select none
+    touch-action none
+
+    &.visible
+        opacity 1
+
+        .panel
+            pointer-events all
+
+    .panel
+        position relative
+        display inline-block
+        height $btn-size-lg
+        background none
+
+    &.hidden
+        bottom $btn-size * 2
+
+    .btn-list
+        font-size 0
+        height $btn-size-lg
+
+        div
+            display inline-block
+            width $btn-size-lg
+            height $btn-size-lg
+            cursor pointer
+            transition transform.3s ease
+
+            &:hover
+                background-color rgba(0, 0, 0, .05)
+
+            &:active
+                background-color rgba(0, 0, 0, .1)
+
+        .hall
+            background-image url("/images/controls/hall.png")
+            background-repeat no-repeat
+            background-size 100% auto
+        .mute
+            background-image url("/images/controls/mute.png")
+            background-repeat no-repeat
+            background-size 100% auto
+        .skip
+            background-image url("/images/controls/skip.png")
+            background-repeat no-repeat
+            background-size 100% auto
+
+    &[data-orientation="landscape-primary"]
+        .marker
+            transform rotate(-90deg)
+    &[data-orientation="landscape-secondary"]
+        .marker
+            transform rotate(90deg)
+    &[data-orientation="portrait-secondary"]
+        .marker
+            transform rotate(180deg)
+
+body.fullscreen
+    #control-panel .fullscreen
+        background-image embedurl("../img/controls/fullscreen_exit.svg", "utf8")
+
+@supports (backdrop-filter: none)
+    #control-panel
+        .panel
+            background rgba(white, .8)
+            backdrop-filter brightness(1.5) blur(40px)
+            
+@media (prefers-color-scheme: dark)
+    #control-panel
+        .panel
+            background rgba($dark-black, .9)
+
+        .btn-list
+            div
+                filter brightness(1.8)
 
 #control-panel
     pointer-events none
