@@ -31,6 +31,7 @@ Tour.setMarkers = function(id) {
                     console.log('now playing', bgmid)
                     bgmplayer[panoid].play();
                     bgmplayer[panoid].volume = volume;
+                    bgmplayer[panoid].loop = true;
                     this.currentBGM = panoid;
 
                     bgmCurrent = panoid;
@@ -41,6 +42,7 @@ Tour.setMarkers = function(id) {
                     bgmplayer[this.currentBGM].pause();
                     bgmplayer[panoid].play();
                     bgmplayer[panoid].volume = volume;
+                    bgmplayer[panoid].loop = true;
                     this.currentBGM = panoid;
 
                     bgmCurrent = panoid;

@@ -56,10 +56,19 @@ $progress-bar-height = 3px
             background-image url("/images/controls/mute.png")
             background-repeat no-repeat
             background-size 100% auto
+        .unmute
+            background-image url("/images/controls/unmute.png")
+            background-repeat no-repeat
+            background-size 100% auto
         .skip
             background-image url("/images/controls/skip.png")
             background-repeat no-repeat
             background-size 100% auto
+        .fullscreen
+            background-image url("/images/controls/zoomout.png")
+            background-repeat no-repeat
+            background-size 100% auto
+        
 
     &[data-orientation="landscape-primary"]
         .marker
@@ -72,8 +81,15 @@ $progress-bar-height = 3px
             transform rotate(180deg)
 
 body.fullscreen
+    #control-panel-lg .fullscreen
+        background-image url("/images/controls/zoomin.png")
+        background-repeat no-repeat
+        background-size 100% auto
+
+body.fullscreen
     #control-panel .fullscreen
         background-image embedurl("../img/controls/fullscreen_exit.svg", "utf8")
+
 
 @supports (backdrop-filter: none)
     #control-panel

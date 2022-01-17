@@ -8,8 +8,10 @@ Tour.setControlPanel = function(data) {
         if (data == "custom")
         {
             UI.controlPanelBig.init(this.options.controlPanel);
-            UI.controlPanelBig.addBtn('hall',   Tour.controls.gohome,   'Diamond Hall');
-            UI.controlPanelBig.addBtn('mute',   Tour.controls.mute,     'Mute');
+            
+            UI.controlPanelBig.addBtn('unmute',           Tour.controls.mute,         'Mute');
+            UI.controlPanelBig.addBtn('fullscreen',     Tour.controls.fullscreen,   'Full Screen');
+            UI.controlPanelBig.addBtn('hall',           Tour.controls.gohome,       'Diamond Hall');
         }
         else
         {

@@ -22,13 +22,20 @@ Tour.controls = {
     },
 
     mute: function() {
+        
+
         if (bgmState) {
             bgmplayer[bgmCurrent].pause();
             bgmState = false;
+
+            var elem = document.getElementsByClassName('marker unmute')[0]
+            elem.className = 'marker mute';
         }
         else {
             bgmplayer[bgmCurrent].play();
             bgmState = true
+            var elem = document.getElementsByClassName('marker mute')[0]
+            elem.className = 'marker unmute';
         }
     },
 
