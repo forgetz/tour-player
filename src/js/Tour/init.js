@@ -15,8 +15,10 @@ Tour.init = function(data, options) {
     this.backgroundImage.init();
     this.createScene();
     UI.notification.init();
-    UI.popUp.init();
-    this.setSliders();
+    // UI.popUp.init();
+    UI.popUpLg.init();
+    // this.setSliders();
+    this.setSlidersLg();
     UI.devCursor.init(this.options.cursor);
 
     

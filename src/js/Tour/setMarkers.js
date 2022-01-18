@@ -76,8 +76,10 @@ Tour.setMarkers = function(id) {
 
             } else if (this.type == 'url') {
                 window.open(this.href, this.target || '_blank');
+            } else if (this.type == 'action') {
+               document.getElementById(this.id).click();
             } else if (this.type == 'popup') {
-                UI.popUp.set(this.id);
+                UI.popUpLg.set(this.id);
             } else if (this.type == 'window') {
 
             } else if (this.type == 'change') {

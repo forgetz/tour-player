@@ -38,7 +38,7 @@
       "id": "9",
       "bgm": {
         "id": "minds",
-        "volume": 0.1
+        "volume": 0
       },
       "title": {"ru": "У дивана", "en": "In the sofa"},
       "heading": 83.95,
@@ -48,10 +48,10 @@
         {"lat":-25.78,"lon":16.21,"icon":"point","action":{"type":"panorama","id":"2"}},
         {"lat":-17.83,"lon":43.61,"icon":"point","action":{"type":"panorama","id":"3"}},
         {"lat":-3.71,"lon":145.92,"icon":"up","action":{"type":"panorama","id":"8"}},
-        {"lat":-4.85,"lon":70.97,"title":"Моноблок Profoto D1","action":{"type":"popup","id":"profoto"}, "sound": "marker"},
-        {"lat":45.97,"lon":25.21,"title": {"ru": "Подвесной свет", "en": "Light"},"action":{"type":"popup","id":"product0"}},
-        {"lat":-28.66,"lon":334.56,"title": {"ru": "Кресло", "en": "Armchair"},"action":{"type":"popup","id":"product4"}},
-        {"lat":-14.12,"lon":416.43,"title": {"ru": "Кресло", "en": "Armchair"},"action":{"type":"popup","id":"product3"}},
+        {"lat":-4.85,"lon":70.97,"title":"Моноблок Profoto D1","action":{"type":"action","id":"profoto"}, "sound": "marker"},
+        {"lat":45.97,"lon":25.21,"title": {"ru": "Подвесной свет", "en": "Light"},"action":{"type":"action","id":"product0"}},
+        {"lat":-28.66,"lon":334.56,"title": {"ru": "Кресло", "en": "Armchair"},"action":{"type":"action","id":"product4"}},
+        {"lat":-14.12,"lon":416.43,"title": {"ru": "Кресло", "en": "Armchair"},"action":{"type":"action","id":"product3"}},
         {
           "lat":8.68,
           "lon":276.35, 

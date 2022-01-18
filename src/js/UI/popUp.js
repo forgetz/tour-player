@@ -2,6 +2,7 @@
 
 UI.popUp = {
     init: function() {
+        console.log('init popup')
         this.domElement = document.querySelector('.popup-layout');
         if (this.domElement) {
             this.domElement.addEventListener('click', function(event) {
@@ -40,3 +41,4 @@ UI.popUp = {
         this.domElement.classList[hash ? 'add' : 'remove']('visible');
     }
 };
+

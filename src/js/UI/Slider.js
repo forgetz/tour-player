@@ -1,6 +1,7 @@
 /* globals UI */
 
 UI.Slider = function(domElement) {
+
     this.frame = 0;
     this.domElement = domElement;
     this.popupId = this.domElement.parentNode.id;
@@ -61,7 +62,9 @@ UI.Slider.prototype.setPosition = function(n, userEvent) {
     if (this.images) { this.images = this.tape.getElementsByTagName('img');} // IE
     this.images[this.frame].onload = this.setPosition.bind(this);
     var height = this.images[this.frame].clientHeight;
-    if (height > 100) { this.tape.style.height = height + 'px'; }
+    if (height > 100) { 
+        this.tape.style.height = height + 'px'; 
+    }
     this.prevButton.setVisible(this.frame > 0);
     this.nextButton.setVisible(this.frame < this.length - 1);
 
