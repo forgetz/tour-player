@@ -5,13 +5,16 @@ Tour.setControlPanel = function(data) {
 
     if (this.options.controlPanel !== undefined) {
 
-        if (data == "custom")
+        if (data.type === "custom")
         {
             UI.controlPanelBig.init(this.options.controlPanel);
-            
-            UI.controlPanelBig.addBtn('unmute',           Tour.controls.mute,         'Mute');
+            UI.controlPanelBig.addBtn('unmute',         Tour.controls.mute,         'Mute');
             UI.controlPanelBig.addBtn('fullscreen',     Tour.controls.fullscreen,   'Full Screen');
             UI.controlPanelBig.addBtn('hall',           Tour.controls.gohome,       'Diamond Hall');
+            
+            if (data.microsite !== undefined) {
+                UI.controlPanelBig.addBtn('microsite',      Tour.controls.microsite,       'Microsite');
+            }
         }
         else
         {

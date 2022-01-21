@@ -39,9 +39,16 @@ Tour.controls = {
         }
     },
 
+    microsite: function() {
+        var data = Tour.getManifest();
+        if (data.control.microsite !== undefined) {
+            window.open(data.control.microsite.url, data.control.microsite.target);
+        }
+    },
+
     gohome: function() {
         var data = Tour.getManifest();
-        Tour.view.set(data.home, null, true);
+        window.open(data.microsite.url, data.microsite.target);
     },
 
     fullscreen: function() {
