@@ -48,7 +48,7 @@ Tour.controls = {
 
     gohome: function() {
         var data = Tour.getManifest();
-        window.open(data.microsite.url, data.microsite.target);
+        Tour.view.set(data.home, null, true);
     },
 
     fullscreen: function() {
